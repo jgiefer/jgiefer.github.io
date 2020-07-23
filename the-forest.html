@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="The Forest" startnode="1" creator="Twine" creator-version="2.3.9" ifid="00914F5A-4896-4215-A59E-9979F05D0E74" zoom="0.25" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ENDE" color="yellow"></tw-tag>,<tw-tag name="Jemand-stirbt" color="red"></tw-tag>,<tw-tag name="ddd" color="orange"></tw-tag><tw-passagedata pid="1" name="Einleitung" tags="" position="248.33333333333334,5.333333333333333" size="100,100">Willkommen bei &quot;The Forest&quot;
+<tw-storydata name="The Forest" startnode="1" creator="Twine" creator-version="2.3.9" ifid="00914F5A-4896-4215-A59E-9979F05D0E74" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ENDE" color="yellow"></tw-tag>,<tw-tag name="Jemand-stirbt" color="red"></tw-tag>,<tw-tag name="ddd" color="orange"></tw-tag><tw-passagedata pid="1" name="Einleitung" tags="" position="248.33333333333334,5.333333333333333" size="100,100">Willkommen bei &quot;The Forest&quot;
 
 Hier erlebst du eine Geschichte von 5 Personen, die sich in einem dunklen und alten Wald zum Camping verabredet haben. Doch in der Nacht verschwindet einer von ihnen...
 
@@ -59,22 +59,22 @@ Was denkst du ist die sinvollere Entscheidung?
 
 [[Hier parken]]
 
-[[Woanders parken]]</tw-passagedata><tw-passagedata pid="5" name="Hier parken" tags="" position="486,763" size="100,100">Du entscheidest dich, hier zu parken und fährst in das Schlammloch hinein. Dann ertönt ein hässliches Geräusch.
+[[Woanders parken]]</tw-passagedata><tw-passagedata pid="5" name="Hier parken" tags="" position="487.6666666666667,763" size="100,100">Du entscheidest dich, hier zu parken und fährst in das Schlammloch hinein. Dann ertönt ein hässliches Geräusch.
 
 Du steigst aus und merkst, dass das Schlammloch wohl etwas tiefer war als gedacht. Im Schlammloch scheinen spitze Steine zu stecken, die sich nun in deinen linken Vorderreifen gebohrt haben.
 
 Du bist stinksauer, weil du kein Werkzeug und keinen Ersatzreifen dabei hast und weißt, dass die nächste Tankstelle 10 Meilen entfernt liegt.
 
-Du verschließt dein Auto und gehst in den Wald hinein.
-
+Du holst zwei Funkgeräte aus dem Handschuhfach, verschließt dein Auto und gehst in den Wald hinein.
+(set: $funkgerät to 1)
 (set: $autoKaputt to 1)
 [[Gehen-&gt;Die Anderen finden]]</tw-passagedata><tw-passagedata pid="6" name="Woanders parken" tags="" position="199,1200" size="100,100">Du beschließt, es lieber nicht zu riskieren.
 
 Als du endlich einen anderen Parkplatz gefunden hast, ist es schon 22:07.
 Vor sieben Minuten hättest du bereits da sein müssen.
 
-Aber es ist keine Zeit, sich darüber aufzuregen, denn du solltest dich lieber beeilen.
-
+Aber es ist keine Zeit, sich darüber aufzuregen, denn du solltest dich lieber beeilen. Du schnappst dir noch zwei Funkgeräte aus dem Handschuhfach und rennst los.
+(set: $funkgerät to 1)
 (set: $zuSpät to 1)
 [[Rennen-&gt;Die Anderen finden]]</tw-passagedata><tw-passagedata pid="7" name="Die Anderen finden" tags="" position="679.6666666666666,730.3333333333334" size="200,200">Du siehst in der Ferne ein Licht. Ein Licht, das von einem Feuer zu kommen scheint. Als du den Platz erreicht hast, siehst du vier Zelte.
 
@@ -332,10 +332,12 @@ Der Gang beginnt zu ruckeln, es wird immer stärker..
 (set: $geopfert to &quot;Lucia&quot;)
 (set: $mehrere to 1)
 Der Gang beginnt zu ruckeln, es wird immer stärker..
-[[Verschwinden]]</tw-passagedata><tw-passagedata pid="26" name="Beide Sterben" tags="Jemand-stirbt" position="2599,1233" size="100,200">Du schaffst es nicht rechtzeitig, die Fesseln der Beiden zu lösen. Du hörst noch den Schrei, dann siehst du nur etwas. Nämlich einen großen, roten See.
+[[Verschwinden]]</tw-passagedata><tw-passagedata pid="26" name="Beide Sterben" tags="Jemand-stirbt" position="2600.6666666666665,1233" size="100,200">Du schaffst es nicht rechtzeitig, die Fesseln der Beiden zu lösen. Du hörst noch den Schrei, dann siehst du nur etwas. Nämlich einen großen, roten See.
 (set: $sam to 0)
 (set: $lucia to 0)
-[[Verschwinden]]</tw-passagedata><tw-passagedata pid="27" name="Verschwinden" tags="" position="3241,1550" size="200,200">(if: $mehrere is 1)[
+
+Dann poltert es plötzlich und einige Steine fallen von der Decke...
+[[Verschwinden]]</tw-passagedata><tw-passagedata pid="27" name="Verschwinden" tags="" position="3250,1550" size="200,200">(if: $mehrere is 1)[
 Ihr rennt in letzter Sekunde aus der Höhle. Ihr hört ein lautes Krachen und der Tunnel hinter euch stürzt ein. Draußen angelangt merkt ihr jedoch etwas. Etwas ist anders. Es riecht seltsam.
 
 &quot;Scheiße, Feuer!&quot;, rufst du.
@@ -353,7 +355,7 @@ Feuer!
 
 Du rast durch den Wald, vorbei an eurem Lager und euren Sachen, immer weiter in Richtung Parkplatz. Doch dann siehst du den Schein zweier Taschenlampen.
 
-[[Nähern-&gt;Mike und Lucas finden]]]</tw-passagedata><tw-passagedata pid="28" name="Zur Schlucht laufen" tags="" position="2448,1784" size="200,100">Ihr rast zur Schlucht, unter Führung von Lucas. Ihr bildet eine Kette, so dass ihr euch langsam hinablassen könnt. Unten angekommen lasst ihr euch einer nach dem anderen ins kalte Wasser fallen.
+[[Nähern-&gt;Mike und Lucas finden]]]</tw-passagedata><tw-passagedata pid="28" name="Zur Schlucht laufen" tags="" position="2356.3333333333335,1765.6666666666667" size="200,100">Ihr rast zur Schlucht, unter Führung von Lucas. Ihr bildet eine Kette, so dass ihr euch langsam hinablassen könnt. Unten angekommen lasst ihr euch einer nach dem anderen ins kalte Wasser fallen.
 
 Unten befindet sich ein dunkler Tunnel.
 (if: $mikeWeg is 1)[
@@ -367,7 +369,9 @@ Ihr wollt gerade eure Taschenlampen einschalten, als in der Ferne ein Licht entd
 [[Den Gang entlanggehen]]]]
 
 (if: $mikeWeg is 0)[
-[[Den Gang entlanggehen]]]</tw-passagedata><tw-passagedata pid="29" name="Dem Licht entgegenkommen" tags="" position="2805,1965" size="200,100">Ihr blickt in den Schein einer Taschenlampe und kneift die Augen zusammen. Alle bis auf Lucas.
+[[Den Gang entlanggehen]]]
+
+[[Abhauen]]</tw-passagedata><tw-passagedata pid="29" name="Dem Licht entgegenkommen" tags="" position="2661.6666666666665,1919.9999999999998" size="200,100">Ihr blickt in den Schein einer Taschenlampe und kneift die Augen zusammen. Alle bis auf Lucas.
 &quot;Sam?!&quot;
 Da macht ihr Anderen die Augen auch auf und blickt in die Gesichter von Sam und Lucia. Doch sie sehen alles Andere als glücklich aus.
 
@@ -398,10 +402,10 @@ Ihr rast durch den Wald, vorbei an eurem Lager und euren Sachen, immer weiter Ri
 
 Doch dann bemerkt ihr das Licht einer Taschenlampe.
 
-[[Nähern-&gt;Mike finden]]</tw-passagedata><tw-passagedata pid="30" name="Den Gang entlanggehen" tags="" position="2620,1581" size="200,100">Der Gang endet in einem hohen Raum mit einer großen Schrottpresse. Nur war sie nicht leer. Am Ende liegen Lucia und Sam. Gefesselt.
+[[Nähern-&gt;Mike finden]]</tw-passagedata><tw-passagedata pid="30" name="Den Gang entlanggehen" tags="" position="2620,1579.3333333333333" size="200,100">Der Gang endet in einem hohen Raum mit einer großen Schrottpresse. Nur war sie nicht leer. Am Ende liegen Lucia und Sam. Gefesselt.
 
 (if: $gamemode is 0)[
-(set: $counter to 7)
+(set: $counter to 5)
 |amount&gt;[$counter]
 
 (live: 1s)[
@@ -410,7 +414,7 @@ Doch dann bemerkt ihr das Licht einer Taschenlampe.
 	(replace: ?amount)[$counter]
 ]]
 
-[[Sie retten]]</tw-passagedata><tw-passagedata pid="31" name="Sie retten" tags="" position="2975,1727" size="200,100">Ihr stürzt euch in letzter Sekunde auf die Fesseln und macht sie los. Dann holt ihr Sam und Lucia aus der Falle, gerade bevor sie zuschnappt.
+[[Sie retten]]</tw-passagedata><tw-passagedata pid="31" name="Sie retten" tags="" position="2973.3333333333335,1573.6666666666667" size="200,100">Ihr stürzt euch in letzter Sekunde auf die Fesseln und macht sie los. Dann holt ihr Sam und Lucia aus der Falle, gerade bevor sie zuschnappt.
 
 &quot;Oh mein Gott!&quot;, ruft Lucia.
 &quot;Das hätte sehr übel ausgehen können&quot;
@@ -650,7 +654,7 @@ Alle drehen sich zu dir.
 
 &quot;Verdammt, der Wald brennt! Wir müssen abhauen!&quot;
 
-[[Flüchten]]</tw-passagedata><tw-passagedata pid="47" name="Flüchten" tags="" position="4368,1354" size="200,200">Ihr rast, wie ihr noch nie gerast seid, durch den Wald zum Parkplatz. Immer mehr Bäume fangen Feuer und einige stürzen ein. Ihr hört ein lautes Surren und seht über euch einen Polizeihelikopter. Offenbar wird schon nach euch gesucht. Aber das Scheinwerferlicht des Helikopters erfasst euch nicht. Er fliegt weiter. Ihr schafft es gerade so zum Parkplatz, bevor die Bäume auf den Boden klatschen und euch erdrücken hätten.
+[[Flüchten]]</tw-passagedata><tw-passagedata pid="47" name="Flüchten" tags="" position="4366.333333333333,1354" size="200,200">Ihr rast, wie ihr noch nie gerast seid, durch den Wald zum Parkplatz. Immer mehr Bäume fangen Feuer und einige stürzen ein. Ihr hört ein lautes Surren und seht über euch einen Polizeihelikopter. Offenbar wird schon nach euch gesucht. Aber das Scheinwerferlicht des Helikopters erfasst euch nicht. Er fliegt weiter. Ihr schafft es gerade so zum Parkplatz, bevor die Bäume auf den Boden klatschen und euch erdrücken hätten.
 
 Beim Parkplatz angekommen, seht ihr es auf den ersten Blick. Alle Autoreifen wurden zerstochen.
 (if: $autoKaputt is 0)[
@@ -670,6 +674,7 @@ Du siehst Lucas entgeistert an.
 
 &quot;Einen anderen Weg gibt es nicht!&quot;
 
+(if: $funkgerät is 1)[
 &quot;Doch!&quot;, sagst du und holst ein Funkgerät aus deiner Tasche.
 
 &quot;Wir können versuchen, die Cops anzufunken!&quot;
@@ -683,13 +688,57 @@ Du siehst Lucas entgeistert an.
 [[Kanal 66 anfunken]]
 [[Kanal 67 anfunken]]
 [[Kanal 68 anfunken]]
-[[Kanal 69 anfunken]]
+[[Kanal 69 anfunken]]]
 
 [[Lucas&#39; Angebot annehmen]]]
 (if: $lucas is 0)[
-Die Flammen kommen näher und ihr werdet eingekreist. Es gibt keinen Weg mehr hinaus.
+(if: $mike is 1)[
+Da tritt Mike vor.
 
-[[ENDE-&gt;SCHLECHTES ENDE]]]]</tw-passagedata><tw-passagedata pid="48" name="Mike finden" tags="" position="3714,2194" size="200,200">Es ist Mike!
+&quot;Leute, das ist die einzige Möglichkeit. Ich muss den Brandstifter für das Feuer finden. Danach wird der Helikopter sicher suchen. Ich kann ihm sagen, wo ihr steckt.&quot;
+
+Du siehst Mike entgeistert an.
+
+&quot;Einen anderen Weg gibt es nicht!&quot;
+
+(if: $funkgerät is 1)[
+&quot;Doch!&quot;, sagst du und holst ein Funkgerät aus deiner Tasche.
+
+&quot;Wir können versuchen, die Cops anzufunken!&quot;
+
+&quot;Aber was ist, wenn wir diesen Typen damit auf uns aufmerksam machen?&quot;
+
+&quot;Wir müssen es probieren. Nur – was war der richtige Kanal?&quot;
+
+[[Kanal 64 anfunken]]
+[[Kanal 65 anfunken]]
+[[Kanal 66 anfunken]]
+[[Kanal 67 anfunken]]
+[[Kanal 68 anfunken]]
+[[Kanal 69 anfunken]]]
+
+[[Mikes Angebot annehmen]]]]]
+
+(if: $lucas is 0)[
+(if: $mike is 0)[
+(if: $funkgerät is 1)[
+
+Du könntest versuchen, die Cops anzufunken!
+Nur – was war der richtige Kanal?
+
+[[Kanal 64 anfunken]]
+[[Kanal 65 anfunken]]
+[[Kanal 66 anfunken]]
+[[Kanal 67 anfunken]]
+[[Kanal 68 anfunken]]
+[[Kanal 69 anfunken]]]]]
+(if: $lucas is 0)[
+(if: $mike is 0)[
+(if: $funkgerät is 0)[
+
+Die Flammen sind überall. Es gibt keinen Ausweg mehr.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]]]</tw-passagedata><tw-passagedata pid="48" name="Mike finden" tags="" position="3714,2194" size="200,200">Es ist Mike!
 
 &quot;Mike?!&quot;, ruft ihr alle.
 &quot;Wie zur Hölle bist du hier hergekommen?&quot;
@@ -709,15 +758,21 @@ Die Flammen kommen näher und ihr werdet eingekreist. Es gibt keinen Weg mehr hi
 &quot;Wir haben gerade keine Zeit für erklärungen&quot;, fährst du dazwischen.
 &quot;Es brennt! Wir müssen verschwinden!&quot;
 
-[[Flüchten]]</tw-passagedata><tw-passagedata pid="50" name="Zu deinem Auto rennen" tags="" position="4634,2021" size="200,100">Ihr rennt zu deinem Auto und springt hinein. Du holst dein Telefon aus dem Handschuhfach und verständigst die Polizei, die kurze Zeit später deinen Wagen abschleppt und euch in die Stadt fährt.
+[[Flüchten]]</tw-passagedata><tw-passagedata pid="50" name="Zu deinem Auto rennen" tags="" position="5849,651" size="200,100">Ihr rennt zu deinem Auto und springt hinein. Du holst dein Telefon aus dem Handschuhfach und verständigst die Polizei, die kurze Zeit später deinen Wagen abschleppt und euch in die Stadt fährt.
 
 [[ENDE]]</tw-passagedata><tw-passagedata pid="51" name="Kanal 64 anfunken" tags="" position="5251,1031" size="100,100">Das war der falsche Kanal.
 
-[[Lucas&#39; Angebot annehmen]]</tw-passagedata><tw-passagedata pid="52" name="Kanal 65 anfunken" tags="" position="5253,1150" size="100,100">Das war der falsche Kanal.
+[[Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
 
-[[Lucas&#39; Angebot annehmen]]</tw-passagedata><tw-passagedata pid="53" name="Kanal 66 anfunken" tags="" position="5243,1256" size="100,100">Das war der falsche Kanal.
+[[ENDE-&gt;SCHLECHTES ENDE]]]]</tw-passagedata><tw-passagedata pid="52" name="Kanal 65 anfunken" tags="" position="5253,1150" size="100,100">Das war der falsche Kanal.
 
-[[Lucas&#39; Angebot annehmen]]</tw-passagedata><tw-passagedata pid="54" name="Kanal 67 anfunken" tags="" position="5616,891" size="100,100">Das war der richtige Kanal!
+[[Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]]</tw-passagedata><tw-passagedata pid="53" name="Kanal 66 anfunken" tags="" position="5243,1256" size="100,100">Das war der falsche Kanal.
+
+[[Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]]</tw-passagedata><tw-passagedata pid="54" name="Kanal 67 anfunken" tags="" position="5616,891" size="100,100">Das war der richtige Kanal!
 (if: $sam is 0)[
 (if: $lucia is 0)[
 (if: $mike is 0)[
@@ -736,9 +791,13 @@ Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen di
 
 [[ENDE]]</tw-passagedata><tw-passagedata pid="55" name="Kanal 68 anfunken" tags="" position="5245,1398" size="100,100">Das war der falsche Kanal.
 
-[[Lucas&#39; Angebot annehmen]]</tw-passagedata><tw-passagedata pid="56" name="Kanal 69 anfunken" tags="" position="5266,1546" size="100,100">Das war der falsche Kanal.
+[[Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
 
-[[Lucas&#39; Angebot annehmen]]</tw-passagedata><tw-passagedata pid="57" name="Lucas&#39; Angebot annehmen" tags="Jemand-stirbt" position="5550,2081" size="200,200">Du nickst Lucas zu und er verschwindet in den Flammen.
+[[ENDE-&gt;SCHLECHTES ENDE]]]]</tw-passagedata><tw-passagedata pid="56" name="Kanal 69 anfunken" tags="" position="5266,1546" size="100,100">Das war der falsche Kanal.
+
+[[Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]]</tw-passagedata><tw-passagedata pid="57" name="Lucas&#39; Angebot annehmen" tags="Jemand-stirbt" position="5385,2067.6666666666665" size="200,200">Du nickst Lucas zu und er verschwindet in den Flammen.
 (set: $lucas to 0)
 (if: $sam is 0)[
 (if: $lucia is 0)[
@@ -753,7 +812,7 @@ Nichts passiert.
 
 Ihr vermutet schon, Lucas wäre gescheitert, doch einige Zeit später taucht tatsächlich der Helikopter auf, der euch sicher in die Stadt zurückbringt.]
 
-[[ENDE]]</tw-passagedata><tw-passagedata pid="58" name="ENDE" tags="ENDE" position="5819,2540" size="200,200">(if: $sam is 1)[
+[[ENDE]]</tw-passagedata><tw-passagedata pid="58" name="ENDE" tags="ENDE" position="6159,2085" size="200,200">(if: $sam is 1)[
 (set: $überlebende to it + 1)]
 
 (if: $lucia is 1)[
@@ -808,7 +867,7 @@ Campingtrip getroffen hatten und dabei brutal angegriffen wurden. Dabei kamen $t
 //An diesem Tag, dem 3. 11. 13 wurde Josh Grate, ein Campierer
 aus dem brennenden Lincoln Forest im Nordwesten Oregons gerettet.
 Er berichtete, dass sie sich zu fünft zu einem
-Campingtrip getroffen hatten und dabei brutal angegriffen wurden. Dabei kamen vier Menschen ums Leben und er war der einzige Überlebende. Josh Grate befindet sich derzeit im Memorial Hospital in Vancouver. Die Polizei erhofft sich weitere Aussagen.//]</tw-passagedata><tw-passagedata pid="59" name="Abhauen" tags="" position="2432,2152" size="200,100">Du beschließt, nicht weiter hineinzugehen.
+Campingtrip getroffen hatten und dabei brutal angegriffen wurden. Dabei kamen vier Menschen ums Leben und er war der einzige Überlebende. Josh Grate befindet sich derzeit im Memorial Hospital in Vancouver. Die Polizei erhofft sich weitere Aussagen.//]</tw-passagedata><tw-passagedata pid="59" name="Abhauen" tags="" position="2147,2055.3333333333335" size="200,100">Du beschließt, nicht weiter hineinzugehen.
 
 &quot;Leute, lass uns lieber verschwinden.&quot;
 Ihr geht langsam und rückwärts aus der Höhle hinaus.
@@ -829,8 +888,35 @@ Am Beckenrand steht ein Mann mit einer Maske.
 //An diesem Tag, dem 3. 11. 13 wurden 
 fünf Leichen aus dem brennenden Lincoln Forest im Nordwesten Oregons geborgen.
 Die geschockten Betroffenen berichteten, dass sie sich zu fünft zu einem
-Campingtrip getroffen hatten und nie zurückgekehrt seien. Die Polizei erhofft sich weitere Aussagen.//</tw-passagedata><tw-passagedata pid="61" name="Einen Stein werfen" tags="" position="2357,2302" size="100,100">&quot;Sie Irrer!&quot;, schreist du und schmeißt einen nassen Stein
-</tw-passagedata><tw-passagedata pid="62" name="Zuhören" tags="" position="2507,2302" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="63" name="Vorlage" tags="" position="370.00000000000006,1708.3333333333335" size="200,200">vgvg</tw-passagedata><tw-passagedata pid="64" name="Der Schmetterlingseffekt" tags="" position="204.33333333333331,304.99999999999994" size="200,200">&#39;&#39;DER SCHMETTERLINGSEFFEKT&#39;&#39;
+Campingtrip getroffen hatten und nie zurückgekehrt seien. Die Polizei erhofft sich weitere Aussagen.//</tw-passagedata><tw-passagedata pid="61" name="Einen Stein werfen" tags="" position="2331.9999999999995,2575.3333333333335" size="100,100">&quot;Sie Irrer!&quot;, schreist du und schmeißt einen nassen Stein nach dem Unbekannten.
+
+Er lacht nur und wirft einen großen Stein ins Becken, sodass starke Wellen erzeugt werden.
+(if: $mikeWeg is 0)[
+
+[[Ihn Provozieren-&gt;Der Unbekannte hat Mike als Geisel]]]
+(if: $mikeWeg is 1)[
+
+[[Ihn Provozieren-&gt;Der Unbekannte droht euch]]]
+
+[[Ihn anflehen]]</tw-passagedata><tw-passagedata pid="62" name="Zuhören" tags="" position="2664,2240.0000000000005" size="100,100">Du schweigst.
+(if: $mikeWeg is 0)[
+&quot;Ich kenne euch&quot;, sagt der Unbekannte.
+&quot;Ich weiß, wer ihr seid: Josh Grate, Lucas Riley und Mike Underwood&quot;]
+(if: $mikeWeg is 1)[
+&quot;Ich kenne euch&quot;, sagt der Unbekannte.
+&quot;Ich weiß, wer ihr seid: Josh Grate und Lucas Riley.&quot;]
+
+&quot;Woher wissen Sie das?&quot;, fragt Lucas.
+
+&quot;Och, das behalte ich lieber für mich.&quot;, antwortet der Mann.
+(if: $mikeWeg is 0)[
+
+[[Ihn Provozieren-&gt;Der Unbekannte hat Mike als Geisel]]]
+(if: $mikeWeg is 1)[
+
+[[Ihn Provozieren-&gt;Der Unbekannte droht euch]]]
+
+[[Ihn anflehen]]</tw-passagedata><tw-passagedata pid="63" name="Vorlage" tags="" position="375,1700" size="200,200">vgvg </tw-passagedata><tw-passagedata pid="64" name="Der Schmetterlingseffekt" tags="" position="204.33333333333331,304.99999999999994" size="200,200">&#39;&#39;DER SCHMETTERLINGSEFFEKT&#39;&#39;
 &lt;img src=&quot;https://i.pinimg.com/originals/af/1d/2c/af1d2c639d6ad1a3d0dfa1736d999e51.png&quot;&gt;
 //&quot;Der Flügelschlag eines Schmetterlings in Brasilien kann einen
 verheerenden Hurricane in Texas auslösen&quot;//
@@ -840,7 +926,173 @@ Jede Entscheidung, die du während deines Spielverlauf treffen wirst, wird vom S
 
 Der Schmetterlingseffekt ist unvermeidbar, wähle also mit Bedacht!
 
-[[Verstanden-&gt;Anfang]]</tw-passagedata></tw-storydata>
+[[Verstanden-&gt;Anfang]]</tw-passagedata><tw-passagedata pid="65" name="Der Unbekannte hat Mike als Geisel" tags="" position="3042.0000000000005,2652.3333333333326" size="200,200">Der Unbekannte zieht Mike zu sich herüber und kugelt ihm beide Arme aus.
+&quot;Adios&quot;, sagt er und verschwindet durch einen Seiteneingang. Ihr hört, wie ein Schalter umgelegt wird. Dann bricht Alles in sich zusammen!
+
+[[Zur Seite springen]]</tw-passagedata><tw-passagedata pid="66" name="Der Unbekannte droht euch" tags="" position="2038.666666666667,2353.666666666667" size="200,200">&quot;Sie können uns eh gar nichts&quot;, sagst du.
+
+Der Typ sieht dich an.
+
+&quot;Ach, meinst du?&quot;, sagt er und verschwindet durch einen Seiteneingang. Ihr hört, wie ein Schalter umgelegt wird. Dann fällt alles in sich zusammen!
+
+[[Zur Seite springen]]</tw-passagedata><tw-passagedata pid="67" name="Ihn anflehen" tags="" position="3125.333333333334,2286.9999999999995" size="200,100">Du bettelst den Unbekannten an.
+
+&quot;Bitte, Sir, lassen sie uns doch wieder laufen!&quot;, flehst du.
+
+Der Unbekannte zögert.
+&quot;Mal überlegen, habt ihr denn etwas dabei, das für mich von Interesse sein könnte?&quot;
+
+Du kramst in deinen Taschen und findest zwei Funkgeräte. Eines hat durch das Wasser einen Kurzschluss bekommen. Das andere ist nmoch intakt.
+
+[[Ihm das intakte Funkgerät geben]]
+[[Ihm das kaputte Funkgerät geben]]
+[[Ihm nichts geben]]</tw-passagedata><tw-passagedata pid="68" name="Ihm das intakte Funkgerät geben" tags="" position="3500,2775" size="200,100">&quot;Hier&quot;, sagst du. &quot;Ich habe ein Funkgerät&quot;
+(set: $funkgerät to 0)
+&quot;Her damit!&quot;, sagt der Mann und schnappt sich das Funkgerät. Dann grinst er. &quot;Geht doch!&quot;, sagt er, und verschwindet durch einen Seiteneingang.
+
+Ihr schwimmt ans Ufer und rennt dem Typen hinterher. Als ihr oben ankommt, ist er verschwunden.
+
+Da fällt dir wieder ein, warum ihr eigentlich hergekommen seid.
+
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="69" name="Ihm das kaputte Funkgerät geben" tags="" position="3715.333333333334,2801.9999999999995" size="200,100">&quot;Hier&quot;, sagst du. &quot;Ich habe ein Funkgerät&quot;
+&quot;Her damit!&quot;, sagt der Mann und schnappt sich das kaputte Funkgerät. Dann grinst er. &quot;Geht doch!&quot;, sagt er, und verschwindet durch einen Seiteneingang.
+
+Ihr schwimmt ans Ufer und rennt dem Typen hinterher. Als ihr oben ankommt, ist er verschwunden.
+
+Da fällt dir wieder ein, warum ihr eigentlich hergekommen seid.
+
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="70" name="Ihm nichts geben" tags="" position="3665.333333333334,2512.333333333332" size="200,100">&quot;Sie bekommen nichts von uns!&quot;, brüllst du.
+
+&quot;Gut, dann eben nicht.&quot;, antwortet der Mann kühl.
+(if: $mikeWeg is 0)[
+Doch dann greift er ins Wasser und schnappt sich Mike! Du versuchst ihn zurückzuziehen, aber der Mann ist viel stärker als du, und zieht Mike zu sich ans Ufer.
+
+[[Weiter-&gt;Der Unbekannte hat Mike als Geisel]]]
+(if: $mikeWeg is 1)[
+Der Unbekannte verschwindet durch einen Seiteneingang. Einige Zeit geschieht nichts. Dann zeigt Lucas plötzlich nach oben. &quot;Feuer!&quot;, schreit er. Du willst antworten, doch dann hörst du die Explosion. Und siehst sie. Und spürst sie.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]</tw-passagedata><tw-passagedata pid="71" name="Zur Seite springen" tags="" position="2432.0000000000005,1983.999999999999" size="200,100">Du rettest dich an den Seitenrand und siehst, wie das Geröll auf dich zugerast kommt. Entscheide dich!
+
+(if: $gamemode is 0)[
+(set: $counter to 5)
+|amount&gt;[$counter]
+
+(live: 1s)[
+	(set: $counter to it - 1)
+	(if: $counter is 0)[(go-to: &quot;Den Typen verfolgen&quot;)]
+	(replace: ?amount)[$counter]
+]]
+
+[[Lucas retten]]
+
+[[Den Typen verfolgen]]</tw-passagedata><tw-passagedata pid="72" name="Lucas retten" tags="Jemand-stirbt" position="2667.0000000000014,1697.000000000001" size="100,200">Du springst unter dem Stein durch und ziehst Lucas heraus. Der Felsen platscht hinter euch ins Wasser. 
+
+&quot;Oh mein Gott, danke, Josh&quot;, keucht Lucas.
+&quot;Schnell, wir müssen zu Mike!&quot;
+
+Ihr rennt die steinernen Treppen hinter dem Seiteneingang hoch. Vom Unbekannten keine Spur. Jemand schwimmt an der Oberfläche vom Wasser. Mikes Leiche.
+(set: $mike to 0)
+&quot;Sieh nicht hin, Lucas&quot;, sagst du.
+
+&quot;Was ist mit Sam und Lucia?&quot;, fragt Lucas.
+
+&quot;Sie müssten irgendwo dort hinten sein.&quot;
+
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="73" name="Den Typen verfolgen" tags="Jemand-stirbt" position="3023.333333333334,2143.6666666666674" size="200,100">Du springst zur Seite, gerade noch bevor der Geröllhaufen dich zerquetscht hätte. Lucas aber findet under dem Geröll sein Grab.
+(set: $lucas to 0)
+[[Losrennen]]</tw-passagedata><tw-passagedata pid="74" name="Losrennen" tags="" position="3278.666666666668,2113.999999999999" size="100,100">(if: $mikeWeg is 0)[
+Du rennst die steinerne Treppe hoch und findest den Typen. Er steht am Rand der Schlucht und hält Mike unter Wasser. Du überrachst ihn von hinten und ziehst ihm eine Pistole aus der Hosentasche. Er fängt an zu lachen.
+
+&quot;Du?&quot;, fragt er. &quot;Du willst mich erschießen? Mich? Du schießt doch eh nicht, du weißt nicht einmal wie man eine Waffe abfeuert.&quot;
+
+[[Schießen-&gt;Du erschießt den Typen und hilfst Mike]]
+
+[[Ihn Verschonen-&gt;Du lässt den Typen gehen und hilfst Mike]]]
+(if: $mikeWeg is 1)[
+Du rennst die steinerne Treppe hoch und findest den Typen. Er steht am Rand der Schlucht. Du überrachst ihn von hinten und ziehst ihm eine Pistole aus der Hosentasche. Er fängt an zu lachen.
+
+&quot;Du?&quot;, fragt er. &quot;Du willst mich erschießen? Mich? Du schießt doch eh nicht, du weißt nicht einmal wie man eine Waffe abfeuert. Übrigens, suchst du deinen Freund Mike?&quot;
+
+Du erstarrst.
+
+&quot;Ich weiß wo er ist&quot; Er holt einen Zünder aus der Tasche.
+&quot;Ich kann ihn jederzeit töten. Möchtest du das wirklich?&quot;
+
+[[Schießen]]
+
+[[Mike beschützen]]]</tw-passagedata><tw-passagedata pid="75" name="Du erschießt den Typen und hilfst Mike" tags="Jemand-stirbt" position="2956.666666666666,1860.3333333333333" size="200,100">Du drückst ab. Der Mann hört auf zu Lachen.
+(set: $typTot to 1)
+&quot;Egal&quot;, sagt er. &quot;Wir sind viele&quot; 
+
+Dann sinkt er zu Boden.
+
+Du rennst zum Ufer und hilfst Mike hinauf.
+
+&quot;Danke, Josh&quot;, sagt er. Wo ist Lucas?
+
+&quot;Lucas ist.. tot, Mike&quot;
+
+&quot;Was?!&quot;
+
+&quot;Ich musste mich entscheiden&quot;
+
+&quot;Und du hast mich gewählt?&quot;
+
+&quot;Ja&quot;
+
+Da fällt dir wieder ein, warum ihr eigentlich hergekommen seid.
+
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="76" name="Du lässt den Typen gehen und hilfst Mike" tags="" position="3165.6666666666665,1755" size="200,100">Du nimmst die Waffe runter. Der Mann lacht.
+
+&quot;Was habe ich gesagt?&quot;, sagt er. Du schubst ihn beiseite und hilfst Mike hinauf.
+
+&quot;Danke, Josh&quot;, sagt er. Wo ist Lucas?
+
+&quot;Lucas ist.. tot, Mike&quot;
+
+&quot;Was?!&quot;
+
+&quot;Ich musste mich entscheiden&quot;
+
+&quot;Und du hast mich gewählt?&quot;
+
+&quot;Ja&quot;
+
+Du drehst dich um. Vom Unbekannten keine Spur.
+
+Da fällt dir wieder ein, warum ihr eigentlich hergekommen seid.
+
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="77" name="Schießen" tags="Jemand-stirbt" position="2953.666666666668,2010.3333333333342" size="100,100">Du drückst ab. Der Mann hört auf zu Lachen.
+(set: $typTot to 1)
+&quot;Egal&quot;, sagt er. &quot;Wir sind viele&quot; 
+Er drückt den Knopf des Zünders.
+In der Ferne ist ein Knall zu hören.
+(set: $mike to 0)
+Dann sinkt er zu Boden.
+
+Da fällt dir ein, warum ihr eigentlich hergekommen seid.
+
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="78" name="Mike beschützen" tags="" position="3038.333333333334,1742" size="100,100">Du nimmst die Waffe runter. Der Mann lacht.
+
+&quot;Was habe ich gesagt?&quot;, sagt er. Der Unbekannte verschwindet im Ausgang. Als du ihm nachrennst, ist nichts mehr von ihm zu sehen. Doch stattdessen taucht in der Ferne ein Junge auf. Es ist Mike!
+
+&quot;Mike!&quot;, rufst du ihm zu. &quot;Hier bin ich!&quot;
+Mike kommt auf dich zu.
+&quot;Da bist du, Josh&quot;, sagt er. Dieser Typ wollte mich in die Luft sprengen! Wo ist Lucas?
+
+&quot;Lucas ist.. tot, Mike&quot;
+
+&quot;Was?!&quot;
+
+&quot;Ich musste mich entscheiden, ob ich den Typen verfolge, oder Mike rette.&quot;
+
+&quot;Und du hast lieber den Typen verfolgt, als Lucas zu retten?&quot;
+
+&quot;Ja, es ging alles so schnell.&quot;
+
+Da fällt dir wieder ein, warum ihr eigentlich hergekommen seid.
+
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="79" name="Mikes Angebot annehmen" tags="" position="4366.333333333333,1574" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
