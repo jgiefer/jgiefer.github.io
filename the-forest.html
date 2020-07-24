@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="The Forest" startnode="1" creator="Twine" creator-version="2.3.9" ifid="00914F5A-4896-4215-A59E-9979F05D0E74" zoom="0.25" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ENDE" color="yellow"></tw-tag>,<tw-tag name="Jemand-stirbt" color="red"></tw-tag>,<tw-tag name="ddd" color="orange"></tw-tag><tw-passagedata pid="1" name="Einleitung" tags="" position="248,5" size="100,100">Willkommen bei &quot;The Forest&quot;
+<tw-storydata name="The Forest" startnode="1" creator="Twine" creator-version="2.3.9" ifid="00914F5A-4896-4215-A59E-9979F05D0E74" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ENDE" color="yellow"></tw-tag>,<tw-tag name="Jemand-stirbt" color="red"></tw-tag>,<tw-tag name="ddd" color="orange"></tw-tag><tw-passagedata pid="1" name="Einleitung" tags="" position="248,5" size="100,100">Willkommen bei &quot;The Forest&quot;
 
 Hier erlebst du eine Geschichte von 5 Personen, die sich in einem dunklen und alten Wald zum Camping verabredet haben. Doch in der Nacht verschwindet einer von ihnen...
 
@@ -239,22 +239,12 @@ Lucas kommt keuchend an. Sein Gesicht glüht.
 
 &quot;Dann schnell hin!&quot;
 (set: $mehrere to 1)
-[[Zur Schlucht laufen]]</tw-passagedata><tw-passagedata pid="18" name="Heruntergestoßen" tags="" position="1555,566" size="200,100">Plötzlich hört ihr Schritte hinter euch. Ehe ihr euch umdrehen könnt, werdet ihr eiskalt heruntergestoßen. Lucas kann sich gerade noch mit einer Hand festhalten und packt dich mit der anderen Hand. Sam und Lucia hängen am seidenen Faden.
+[[Zur Schlucht laufen]]</tw-passagedata><tw-passagedata pid="18" name="Heruntergestoßen" tags="" position="1555,570" size="200,100">Plötzlich hört ihr Schritte hinter euch. Ehe ihr euch umdrehen könnt, werdet ihr eiskalt heruntergestoßen. Lucas kann sich gerade noch mit einer Hand festhalten und packt dich mit der anderen Hand. Sam und Lucia hängen am seidenen Faden.
 
 Wem hilfst du?
 
 (if: $gamemode is 0)[
 (set: $counter to 15)
-|amount&gt;[$counter]
-
-(live: 1s)[
-	(set: $counter to it - 1)
-	(if: $counter is 0)[(go-to: &quot;Beide Fallen&quot;)]
-	(replace: ?amount)[$counter]
-]]
-
-(if: $gamemode is 1)[
-(set: $counter to 25)
 |amount&gt;[$counter]
 
 (live: 1s)[
@@ -339,15 +329,22 @@ Der Gang beginnt zu ruckeln, es wird immer stärker..
 (set: $lucia to 0)
 
 Dann poltert es plötzlich und einige Steine fallen von der Decke...
-[[Verschwinden]]</tw-passagedata><tw-passagedata pid="27" name="Verschwinden" tags="" position="3250,1550" size="200,200">(if: $mehrere is 1)[
+[[Verschwinden]]</tw-passagedata><tw-passagedata pid="27" name="Verschwinden" tags="" position="3250,1549" size="200,200">(if: $mehrere is 1)[
 Ihr rennt in letzter Sekunde aus der Höhle. Ihr hört ein lautes Krachen und der Tunnel hinter euch stürzt ein. Draußen angelangt merkt ihr jedoch etwas. Etwas ist anders. Es riecht seltsam.
 
 &quot;Scheiße, Feuer!&quot;, rufst du.
 &quot;Der Wald brennt!&quot;
 
 Ihr rast durch den Wald, vorbei an eurem Lager und euren Sachen, immer weiter in Richtung Parkplatz.
-
-[[Zum Parkplatz flüchten-&gt;Flüchten]]]
+(if: $mikeWeg is 0)[
+[[Zum Parkplatz flüchten-&gt;Flüchten]]]]
+(if: $mikeWeg is 1)[
+(if: $mike is 1)[
+In der Ferne seht ihr ein Licht.
+[[Nähern-&gt;Mike finden]]]]
+(if: $mikeWeg is 1)[
+(if: $mike is 0)[
+[[Zum Parkplatz flüchten-&gt;Flüchten]]]]
 (if: $mehrere is 0)[
 
 Du rennst in letzter Sekunde aus der Höhle. Du hörst ein lautes Krachen und der Tunnel hinter dir stürzt ein. Draußen angelangt merkst du jedoch etwas. Etwas ist anders. Es riecht seltsam.
@@ -373,7 +370,7 @@ Ihr wollt gerade eure Taschenlampen einschalten, als in der Ferne ein Licht entd
 (if: $mikeWeg is 0)[
 [[Den Gang entlanggehen]]]
 
-[[Abhauen]]</tw-passagedata><tw-passagedata pid="29" name="Dem Licht entgegenkommen" tags="" position="2661,1919" size="200,100">Ihr blickt in den Schein einer Taschenlampe und kneift die Augen zusammen. Alle bis auf Lucas.
+[[Abhauen]]</tw-passagedata><tw-passagedata pid="29" name="Dem Licht entgegenkommen" tags="" position="2659.3333333333335,1919" size="200,100">Ihr blickt in den Schein einer Taschenlampe und kneift die Augen zusammen. Alle bis auf Lucas.
 &quot;Sam?!&quot;
 Da macht ihr Anderen die Augen auch auf und blickt in die Gesichter von Sam und Lucia. Doch sie sehen alles Andere als glücklich aus.
 
@@ -740,12 +737,21 @@ Nur – was war der richtige Kanal?
 
 Die Flammen sind überall. Es gibt keinen Ausweg mehr.
 
-[[ENDE-&gt;SCHLECHTES ENDE]]]]]</tw-passagedata><tw-passagedata pid="48" name="Mike finden" tags="" position="3714,2194" size="200,200">Es ist Mike!
+[[ENDE-&gt;SCHLECHTES ENDE]]]]]</tw-passagedata><tw-passagedata pid="48" name="Mike finden" tags="" position="3715.6666666666665,2197.333333333333" size="200,200">(if: $mikeBetrunken is 0)[
+Es ist Mike!
 
 &quot;Mike?!&quot;, ruft ihr alle.
 &quot;Wie zur Hölle bist du hier hergekommen?&quot;
 
-&quot;Dieser Typ mit der Maske hat mich gekidnapt und zu Sam und Lucia in diese Höhle gebracht. Ich hab sie befreit und bin abgehauen. Dann hab ich den Rauch gerochen und bin hierher gerannt. Und da standet ihr dann.&quot;
+&quot;Dieser Typ mit der Maske hat mich gekidnapt und zu Sam und Lucia in diese Höhle gebracht. Ich hab sie befreit und bin abgehauen. Dann hab ich den Rauch gerochen und bin hierher gerannt. Und da standet ihr dann.&quot;]
+(if: $mikeBetrunken is 1)[
+Es ist Mike!
+
+&quot;Mike?!&quot;, ruft ihr alle.
+&quot;Wie zur Hölle bist du hier hergekommen?&quot;
+
+&quot;Dieser Typ mit der Maske hat mich gekidnapt und in sein Lager gesperrt. Er hatte eine Bombe mit der er mich in die Luft sprengen wollte, wenn ich nicht damit rausrücke, wo ihr seid. Aber ich konnte ihn austricksen und bin abgehauen. Da standet ihr dann.&quot;]
+
 
 &quot;Hallo, Leute?&quot;, fährt Lucas dazwischen.
 &quot;Es brennt! Wir müssen verschwinden!&quot;
@@ -799,7 +805,7 @@ Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt si
 
 Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
 
-[[ENDE-&gt;SCHLECHTES ENDE]]</tw-passagedata><tw-passagedata pid="57" name="Lucas&#39; Angebot annehmen" tags="Jemand-stirbt" position="5385,2067" size="200,200">Du nickst Lucas zu und er verschwindet in den Flammen.
+[[ENDE-&gt;SCHLECHTES ENDE]]</tw-passagedata><tw-passagedata pid="57" name="Lucas&#39; Angebot annehmen" tags="Jemand-stirbt" position="5383.333333333333,2067" size="200,200">Du nickst Lucas zu und er verschwindet in den Flammen.
 (set: $lucas to 0)
 (if: $sam is 0)[
 (if: $lucia is 0)[
@@ -900,7 +906,7 @@ Er lacht nur und wirft einen großen Stein ins Becken, sodass starke Wellen erze
 
 [[Ihn Provozieren-&gt;Der Unbekannte droht euch]]]
 
-[[Ihn anflehen]]</tw-passagedata><tw-passagedata pid="62" name="Zuhören" tags="" position="2664,2240" size="100,100">Du schweigst.
+[[Ihn anflehen]]</tw-passagedata><tw-passagedata pid="62" name="Zuhören" tags="" position="2634,2251.6666666666665" size="100,100">Du schweigst.
 (if: $mikeWeg is 0)[
 &quot;Ich kenne euch&quot;, sagt der Unbekannte.
 &quot;Ich weiß, wer ihr seid: Josh Grate, Lucas Riley und Mike Underwood&quot;]
@@ -1074,7 +1080,7 @@ Dann sinkt er zu Boden.
 
 Da fällt dir ein, warum ihr eigentlich hergekommen seid.
 
-[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="78" name="Mike beschützen" tags="" position="3038,1742" size="100,100">Du nimmst die Waffe runter. Der Mann lacht.
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="78" name="Mike beschützen" tags="" position="2999.6666666666665,1720.3333333333333" size="100,100">Du nimmst die Waffe runter. Der Mann lacht.
 
 &quot;Was habe ich gesagt?&quot;, sagt er. Der Unbekannte verschwindet im Ausgang. Als du ihm nachrennst, ist nichts mehr von ihm zu sehen. Doch stattdessen taucht in der Ferne ein Junge auf. Es ist Mike!
 
@@ -1086,7 +1092,7 @@ Mike kommt auf dich zu.
 
 &quot;Was?!&quot;
 
-&quot;Ich musste mich entscheiden, ob ich den Typen verfolge, oder Mike rette.&quot;
+&quot;Ich musste mich entscheiden, ob ich den Typen verfolge, oder Lucas rette.&quot;
 
 &quot;Und du hast lieber den Typen verfolgt, als Lucas zu retten?&quot;
 
@@ -1094,7 +1100,22 @@ Mike kommt auf dich zu.
 
 Da fällt dir wieder ein, warum ihr eigentlich hergekommen seid.
 
-[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="79" name="Mikes Angebot annehmen" tags="" position="4366,1574" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="79" name="Mikes Angebot annehmen" tags="Jemand-stirbt" position="5662,1901.6666666666667" size="200,200">Du nickst Mike zu und er verschwindet in den Flammen.
+(set: $mike to 0)
+(if: $sam is 0)[
+(if: $lucia is 0)[
+(if: $lucas is 0)[
+(set: $alleTot to 1)]]]
+(if: $alleTot is 1)[
+Einige Zeit später taucht dann aber tatsächlich der Helikopter auf, der dich sicher in die Stadt zurückbringt.]
+(if: $alleTot is 0)[
+Ihr wartet lange. 
+
+Nichts passiert. 
+
+Ihr vermutet schon, Lucas wäre gescheitert, doch einige Zeit später taucht tatsächlich der Helikopter auf, der euch sicher in die Stadt zurückbringt.]
+
+[[ENDE]]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
