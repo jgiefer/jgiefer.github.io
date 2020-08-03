@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="The Forest" startnode="1" creator="Twine" creator-version="2.3.9" ifid="00914F5A-4896-4215-A59E-9979F05D0E74" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ENDE" color="yellow"></tw-tag>,<tw-tag name="Jemand-stirbt" color="red"></tw-tag>,<tw-tag name="ddd" color="orange"></tw-tag><tw-passagedata pid="1" name="Einleitung" tags="" position="248,5" size="100,100">Willkommen bei &quot;The Forest&quot;
+<tw-storydata name="The Forest" startnode="1" creator="Twine" creator-version="2.3.9" ifid="00914F5A-4896-4215-A59E-9979F05D0E74" zoom="0.25" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="ENDE" color="yellow"></tw-tag>,<tw-tag name="Jemand-stirbt" color="red"></tw-tag>,<tw-tag name="ddd" color="orange"></tw-tag><tw-passagedata pid="1" name="Einleitung" tags="" position="248,5" size="100,100">Willkommen bei &quot;The Forest&quot;
 
 Hier erlebst du eine Geschichte von 5 Personen, die sich in einem dunklen und alten Wald zum Camping verabredet haben. Doch in der Nacht verschwindet einer von ihnen...
 
@@ -42,8 +42,9 @@ Bevor du beginnst, lies vorsichtshalber Das hier, denn man kann nie wissen...
 (set: $gamemode to 1)
 Bevor du beginnst, lies vorsichtshalber Das hier, denn man kann nie wissen...
 
-[[Hier Lesen-&gt;Der Schmetterlingseffekt]]</tw-passagedata><tw-passagedata pid="4" name="Anfang" tags="" position="188,687" size="200,200">Du bist Josh, ein offener und netter Mensch. An diesem Tag, dem 3. November 2013 hast du dich mit deinen besten Freunden Sam, Mike, Lucia und Lucas 
+[[Hier Lesen-&gt;Der Schmetterlingseffekt]]</tw-passagedata><tw-passagedata pid="4" name="Anfang" tags="" position="184,687" size="200,200">Du bist Josh, ein offener und netter Mensch. An diesem Tag, dem 3. November 2013 hast du dich mit deinen besten Freunden Sam, Mike, Lucia und Lucas 
 im Lincoln Forest im Nordwesten von Orgeon zum Campen verabredet. Das Autoradio dudelt Countrymusik und jede Menge Werbung.
+(set: $kanal to (random: 64,69))
 //Wenn Sie in Schwierigkeiten sind, funken sie Kanal 67 an. Wir helfen. Portland Police Department.//
 
 (set: $sam to 1)
@@ -370,7 +371,7 @@ Ihr wollt gerade eure Taschenlampen einschalten, als in der Ferne ein Licht entd
 (if: $mikeWeg is 0)[
 [[Den Gang entlanggehen]]]
 
-[[Abhauen]]</tw-passagedata><tw-passagedata pid="29" name="Dem Licht entgegenkommen" tags="" position="2659.3333333333335,1919" size="200,100">Ihr blickt in den Schein einer Taschenlampe und kneift die Augen zusammen. Alle bis auf Lucas.
+[[Abhauen]]</tw-passagedata><tw-passagedata pid="29" name="Dem Licht entgegenkommen" tags="" position="2659,1919" size="200,100">Ihr blickt in den Schein einer Taschenlampe und kneift die Augen zusammen. Alle bis auf Lucas.
 &quot;Sam?!&quot;
 Da macht ihr Anderen die Augen auch auf und blickt in die Gesichter von Sam und Lucia. Doch sie sehen alles Andere als glücklich aus.
 
@@ -737,7 +738,7 @@ Nur – was war der richtige Kanal?
 
 Die Flammen sind überall. Es gibt keinen Ausweg mehr.
 
-[[ENDE-&gt;SCHLECHTES ENDE]]]]]</tw-passagedata><tw-passagedata pid="48" name="Mike finden" tags="" position="3715.6666666666665,2197.333333333333" size="200,200">(if: $mikeBetrunken is 0)[
+[[ENDE-&gt;SCHLECHTES ENDE]]]]]</tw-passagedata><tw-passagedata pid="48" name="Mike finden" tags="" position="3715,2197" size="200,200">(if: $mikeBetrunken is 0)[
 Es ist Mike!
 
 &quot;Mike?!&quot;, ruft ihr alle.
@@ -768,19 +769,20 @@ Es ist Mike!
 
 [[Flüchten]]</tw-passagedata><tw-passagedata pid="50" name="Zu deinem Auto rennen" tags="" position="5849,651" size="200,100">Ihr rennt zu deinem Auto und springt hinein. Du holst dein Telefon aus dem Handschuhfach und verständigst die Polizei, die kurze Zeit später deinen Wagen abschleppt und euch in die Stadt fährt.
 
-[[ENDE]]</tw-passagedata><tw-passagedata pid="51" name="Kanal 64 anfunken" tags="" position="5255,1035" size="100,100">Das war der falsche Kanal.
+[[ENDE]]</tw-passagedata><tw-passagedata pid="51" name="Kanal 64 anfunken" tags="" position="5255,1035" size="100,100">(if: $kanal &lt; 64)[
+Das war der falsche Kanal.
 
 Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
 
-[[ENDE-&gt;SCHLECHTES ENDE]]</tw-passagedata><tw-passagedata pid="52" name="Kanal 65 anfunken" tags="" position="5253,1150" size="100,100">Das war der falsche Kanal.
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal &gt; 64)[
+Das war der falsche Kanal.
 
 Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
 
-[[ENDE-&gt;SCHLECHTES ENDE]]</tw-passagedata><tw-passagedata pid="53" name="Kanal 66 anfunken" tags="" position="5243,1256" size="100,100">Das war der falsche Kanal.
-
-Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
-
-[[ENDE-&gt;SCHLECHTES ENDE]]</tw-passagedata><tw-passagedata pid="54" name="Kanal 67 anfunken" tags="" position="5616,891" size="100,100">Das war der richtige Kanal!
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal is 64)[
+Das war der richtige Kanal!
 (if: $sam is 0)[
 (if: $lucia is 0)[
 (if: $mike is 0)[
@@ -797,15 +799,158 @@ Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo du b
 
 Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen dich sicher in die Stadt.]
 
-[[ENDE]]</tw-passagedata><tw-passagedata pid="55" name="Kanal 68 anfunken" tags="" position="5245,1398" size="100,100">Das war der falsche Kanal.
+[[ENDE]]]</tw-passagedata><tw-passagedata pid="52" name="Kanal 65 anfunken" tags="" position="5253,1154" size="100,100">(if: $kanal &lt; 65)[
+Das war der falsche Kanal.
 
 Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
 
-[[ENDE-&gt;SCHLECHTES ENDE]]</tw-passagedata><tw-passagedata pid="56" name="Kanal 69 anfunken" tags="" position="5266,1542" size="100,100">Das war der falsche Kanal.
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal &gt; 65)[
+Das war der falsche Kanal.
 
 Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
 
-[[ENDE-&gt;SCHLECHTES ENDE]]</tw-passagedata><tw-passagedata pid="57" name="Lucas&#39; Angebot annehmen" tags="Jemand-stirbt" position="5383.333333333333,2067" size="200,200">Du nickst Lucas zu und er verschwindet in den Flammen.
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal is 65)[
+Das war der richtige Kanal!
+(if: $sam is 0)[
+(if: $lucia is 0)[
+(if: $mike is 0)[
+(if: $lucas is 0)[
+(set: $alleTot to 1)]]]]
+
+(if: $alleTot is 0)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo ihr seid.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen euch sicher in die Stadt.]
+
+(if: $alleTot is 1)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo du bist.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen dich sicher in die Stadt.]
+
+[[ENDE]]]</tw-passagedata><tw-passagedata pid="53" name="Kanal 66 anfunken" tags="" position="5243,1260" size="100,100">(if: $kanal &lt; 66)[
+Das war der falsche Kanal.
+
+Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal &gt; 66)[
+Das war der falsche Kanal.
+
+Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal is 66)[
+Das war der richtige Kanal!
+(if: $sam is 0)[
+(if: $lucia is 0)[
+(if: $mike is 0)[
+(if: $lucas is 0)[
+(set: $alleTot to 1)]]]]
+
+(if: $alleTot is 0)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo ihr seid.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen euch sicher in die Stadt.]
+
+(if: $alleTot is 1)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo du bist.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen dich sicher in die Stadt.]
+
+[[ENDE]]]</tw-passagedata><tw-passagedata pid="54" name="Kanal 67 anfunken" tags="" position="5616,895" size="100,100">(if: $kanal is 67)[
+Das war der richtige Kanal!
+(if: $sam is 0)[
+(if: $lucia is 0)[
+(if: $mike is 0)[
+(if: $lucas is 0)[
+(set: $alleTot to 1)]]]]
+
+(if: $alleTot is 0)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo ihr seid.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen euch sicher in die Stadt.]
+
+(if: $alleTot is 1)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo du bist.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen dich sicher in die Stadt.]
+
+[[ENDE]]]
+
+(if: $kanal &lt; 67)[
+Das war der falsche Kanal.
+
+Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal &gt; 67)[
+Das war der falsche Kanal.
+
+Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]</tw-passagedata><tw-passagedata pid="55" name="Kanal 68 anfunken" tags="" position="5245,1398" size="100,100">(if: $kanal &lt; 68)[
+Das war der falsche Kanal.
+
+Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal &gt; 68)[
+Das war der falsche Kanal.
+
+Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal is 68)[
+Das war der richtige Kanal!
+(if: $sam is 0)[
+(if: $lucia is 0)[
+(if: $mike is 0)[
+(if: $lucas is 0)[
+(set: $alleTot to 1)]]]]
+
+(if: $alleTot is 0)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo ihr seid.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen euch sicher in die Stadt.]
+
+(if: $alleTot is 1)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo du bist.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen dich sicher in die Stadt.]
+
+[[ENDE]]]</tw-passagedata><tw-passagedata pid="56" name="Kanal 69 anfunken" tags="" position="5266,1542" size="100,100">(if: $kanal &lt; 69)[
+Das war der falsche Kanal.
+
+Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal &gt; 69)[
+Das war der falsche Kanal.
+
+Eine fremde Stimme antwortet. &quot;Danke für die Informationen!&quot;, sagt sie. Dann bricht das Signal ab.
+
+[[ENDE-&gt;SCHLECHTES ENDE]]]
+(if: $kanal is 69)[
+Das war der richtige Kanal!
+(if: $sam is 0)[
+(if: $lucia is 0)[
+(if: $mike is 0)[
+(if: $lucas is 0)[
+(set: $alleTot to 1)]]]]
+
+(if: $alleTot is 0)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo ihr seid.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen euch sicher in die Stadt.]
+
+(if: $alleTot is 1)[
+Du erzählst den Cops alles. Wie ihr angegriffen und verfolgt wurdet und wo du bist.
+
+Die Polizisten tauchen 5 Minuten später mit ihrem Helikopter auf und bringen dich sicher in die Stadt.]
+
+[[ENDE]]]</tw-passagedata><tw-passagedata pid="57" name="Lucas&#39; Angebot annehmen" tags="Jemand-stirbt" position="5383,2067" size="200,200">Du nickst Lucas zu und er verschwindet in den Flammen.
 (set: $lucas to 0)
 (if: $sam is 0)[
 (if: $lucia is 0)[
@@ -820,7 +965,7 @@ Nichts passiert.
 
 Ihr vermutet schon, Lucas wäre gescheitert, doch einige Zeit später taucht tatsächlich der Helikopter auf, der euch sicher in die Stadt zurückbringt.]
 
-[[ENDE]]</tw-passagedata><tw-passagedata pid="58" name="ENDE" tags="ENDE" position="6159,2085" size="200,200">(if: $sam is 1)[
+[[ENDE]]</tw-passagedata><tw-passagedata pid="58" name="ENDE" tags="ENDE" position="6163,2085" size="200,200">(if: $sam is 1)[
 (set: $überlebende to it + 1)]
 
 (if: $lucia is 1)[
@@ -906,7 +1051,7 @@ Er lacht nur und wirft einen großen Stein ins Becken, sodass starke Wellen erze
 
 [[Ihn Provozieren-&gt;Der Unbekannte droht euch]]]
 
-[[Ihn anflehen]]</tw-passagedata><tw-passagedata pid="62" name="Zuhören" tags="" position="2634,2251.6666666666665" size="100,100">Du schweigst.
+[[Ihn anflehen]]</tw-passagedata><tw-passagedata pid="62" name="Zuhören" tags="" position="2634,2251" size="100,100">Du schweigst.
 (if: $mikeWeg is 0)[
 &quot;Ich kenne euch&quot;, sagt der Unbekannte.
 &quot;Ich weiß, wer ihr seid: Josh Grate, Lucas Riley und Mike Underwood&quot;]
@@ -1080,7 +1225,7 @@ Dann sinkt er zu Boden.
 
 Da fällt dir ein, warum ihr eigentlich hergekommen seid.
 
-[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="78" name="Mike beschützen" tags="" position="2999.6666666666665,1720.3333333333333" size="100,100">Du nimmst die Waffe runter. Der Mann lacht.
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="78" name="Mike beschützen" tags="" position="2999,1720" size="100,100">Du nimmst die Waffe runter. Der Mann lacht.
 
 &quot;Was habe ich gesagt?&quot;, sagt er. Der Unbekannte verschwindet im Ausgang. Als du ihm nachrennst, ist nichts mehr von ihm zu sehen. Doch stattdessen taucht in der Ferne ein Junge auf. Es ist Mike!
 
@@ -1100,7 +1245,7 @@ Mike kommt auf dich zu.
 
 Da fällt dir wieder ein, warum ihr eigentlich hergekommen seid.
 
-[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="79" name="Mikes Angebot annehmen" tags="Jemand-stirbt" position="5662,1901.6666666666667" size="200,200">Du nickst Mike zu und er verschwindet in den Flammen.
+[[Den Gang entlanggehen]]</tw-passagedata><tw-passagedata pid="79" name="Mikes Angebot annehmen" tags="Jemand-stirbt" position="5662,1901" size="200,200">Du nickst Mike zu und er verschwindet in den Flammen.
 (set: $mike to 0)
 (if: $sam is 0)[
 (if: $lucia is 0)[
